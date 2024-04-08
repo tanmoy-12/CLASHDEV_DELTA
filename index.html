@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo site</title>
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:900" rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <div id="pc-view" class="navbar">
+        <div class="logo">
+            <!-- <img src="logo.png" height="60px" width="130px"> -->
+            <h2>Logo</h2>
+        </div>
+        <div class="menu">
+            <li><a>Home</a></li>
+            <li><a>About Us</a></li>
+            <li><a>Contact Us</a></li>
+        </div>
+    </div>
+
+    <!-- Mobile Navbar Toggle Button -->
+    <nav id="mobile-view">
+        <div class="navbar">
+            <div class="menu-toggler">
+                <h2 onclick="showSidebar()"><i class="fa-solid fa-bars"></i></h2>
+            </div>
+            <div class="logo_mobile">
+                <!-- <img src="logo.png" height="60px" width="130px"> -->
+                <h1>Logo</h1>
+            </div>
+        </div>
+        <ul class="sidebar">
+            <li id="exit" onclick="hideSidebar()"><a href="#"><i class="fa-solid fa-xmark"></i></a></li>
+            <li><a href="index.html">Home</a></li>
+        </ul>
+
+    </nav>
+
+    
+    <section class="header_Container">
+        <div class="header">
+            <!-- Header Content -->
+            <div class="header-element">
+                <div class="content">
+                    <h1><span style="color: #ff5500; font-weight: 600;">Discover. Shop. Delight</span><h3>Your ultimate source for style and convenience</h3></h1>
+                    <p>
+                        Welcome to your one-stop destination for the latest trends and must-have products. Explore our curated collection and indulge in seamless shopping at E-Cart
+                    </p>
+                    <button id="button" type="button" class="btn fw-bold p-" style="background-color: rgb(0, 0, 118);"><a href="cart.html" style=" color: #fff;">Manage Inventory</a></button>
+
+                    </div>
+                <div class="myvideo">
+                   <div class="laptop-container">
+                        <img src="laptop.png" width="500px">
+                    </div>
+                    <div class="laptop-video">
+                        <!-- <iframe width="325px" height="210px" src="https://www.youtube.com/embed/LEK2R58xdsk?si=We04PdD_wpL1NpCJ" style="object-fit: cover;" title="YouTube video player" frameborder="0" autoplay loop allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture;" loop muted controls controlsList="nodownload" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
+                        <video src="video.mp4" width="325px" height="210px" autoplay  loop muted controls controlsList="nodownload" style="object-fit: cover;"></video>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class='air air1'></div>
+        <div class='air air2'></div>
+        <div class='air air3'></div>
+        <div class='air air4'></div>      
+    </section>
+
+    <div class="customer">
+        <div class="customer-bg"></div>
+        <div class="customer-card">
+            <i class="fa-solid fa-rectangle-list"></i>
+            <h2>1000+</h2>
+            <h3 style="color: #ff5500;">Products</h3>
+        </div>
+        <div class="customer-card">
+            <i class="fa-solid fa-layer-group"></i>
+            <h2>1200+</h2>
+            <h3 style="color: #ff5500;">Brands</h3>
+        </div>
+    </div>
+
+    <!-- FAQ Section -->
+    <div class="faq-container">
+        <!-- FAQ Content -->
+        <h2>Frequently Asked Questions</h2>     
+        <details>
+            <summary>What payment methods are accepted?</summary>
+            <p>We accept various payment methods including credit/debit cards, online payment gateways, and cash. Choose the most convenient option during checkout.</p>
+        </details>
+        
+        <details>
+            <summary>Can I modify or cancel my order?</summary>
+            <p>Yes, you can modify or cancel your order by contacting our support team. Please ensure changes are made before shipment to avoid any inconvenience.</p>
+        </details>
+        
+        <details>
+            <summary>Do you provide discounts or promotions?</summary>
+            <p>Yes, we frequently offer discounts and promotions. Keep an eye on our website for the latest deals or promotions.</p>
+        </details>
+        
+        <details>
+            <summary>What products do you sell?</summary>
+            <p>We offer a diverse range of products including electronics, fashion items, home goods, and more. Explore our catalog to discover our full selection.</p>
+        </details>
+        
+        <details>
+            <summary>How can I track my order?</summary>
+            <p>Tracking information will be provided once your order is shipped. You can also track your order status by logging into your account on our website.</p>
+        </details>
+        
+        <details>
+            <summary>Is my personal information secure?</summary>
+            <p>Yes, we prioritize the security of your personal information. Our platform utilizes advanced encryption technology to safeguard your data and ensure confidentiality.</p>
+        </details>
+    </div>
+    
+    
+
+    <div class="parent-text-container">
+        <div class="text-container">
+            <h1>delta</h1>
+        </div>
+    </div>
+
+            <!-- Footer -->
+            <footer>
+                <div id="maps-container" class="footer-container">
+                    <h2>Real Time location of the Institute will be given here</h2>
+    
+                </div>
+                <div class="footer-container">
+                    <!--*comoany-box*-->
+                    <div class="footer-company-box">
+                        <!--logo-->
+                        <a href="#" class="logo"><span>Logo- </span>Comapny Name</a>
+                        <!--details-->
+                        <p></p>
+                        <!--social-box-->
+                        <div class="footer-social">
+                            <a href="#"><i class="fa-brands fa-facebook-f"></i></a>
+                            <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                            <a href="#"><i class="fa-brands fa-twitter"></i></a>
+                            <a href="#"><i class="fa-brands fa-youtube"></i></a>
+                        </div>
+                    </div>
+    
+    
+                    <!--*link-box-->
+                    <div class="footer-link-box">
+                        <strong>Quick Links</strong>
+                        <ul>
+                            <li><a href="">Home</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Services</a></li>
+                        </ul>
+                    </div>
+                    <!--*link-box-->
+                    <div class="footer-link-box">
+                        <strong>Company</strong>
+                        <ul>
+                            <li><a href="#">Our Product's</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Disclaimer</a></li>
+                            <li><a href="#">Trem's and Condition's</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </footer>
+
+            <script>
+                function showSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                sidebar.style.display = 'flex';
+                }
+
+                function hideSidebar() {
+                const sidebar = document.querySelector('.sidebar');
+                sidebar.style.display = 'none';
+                }
+            </script>
+</body>
+
+

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+    <link rel="stylesheet" href="cart.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header__wrapper">
+          <h1 class="header__headline">Inventory Management</h1>
+      
+          <section class="cart">
+            <h2 class="cart__headline">My cart</h2>
+            <button id="js-delete-cart">Empty cart</button>
+            <ul class="cart__shoppingList" id="js-item-list"></ul>
+          </section>
+        </div>
+      </header>
+      
+      <main class="main">
+        <ul class="main__wrapper">
+          
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 01</h3>
+              <p>Computer</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 01" data-price="20,00 €">Add to cart</button>
+            </div>
+          </li>
+          
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 02</h3>
+              <p>Mouse</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 02" data-price="12,50 €">Add to cart</button>
+            </div>
+          </li>
+          
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 03</h3>
+              <p>Laptop</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 03" data-price="37,90 €">Add to cart</button>
+            </div>
+          </li>
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 03</h3>
+              <p>Cooling fan</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 03" data-price="37,90 €">Add to cart</button>
+            </div>
+          </li>
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 03</h3>
+              <p>Motherboard</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 03" data-price="37,90 €">Add to cart</button>
+            </div>
+          </li>
+          <li class="teaser">
+            <div class="teaser__wrapper">
+              <h3 class="teaser__headline">Item 03</h3>
+              <p>Monitor</p>
+              <p><button class="teaser__cta js-buy-button" data-title="Item 03" data-price="37,90 €">Add to cart</button>
+            </div>
+          </li>
+          
+        </ul>
+      </main>
+      <script>
+        function setCart(item, payload) {
+  localStorage.setItem(item, payload);
+}
+
+function getCart(item) {
+  let cartData = localStorage.getItem(item);
+  return cartData;
+}
+
+function deleteCart(item) {
+  localStorage.removeItem(item);
+}
+
+function addToCartHandler() {
+  const storageCartName = 'cart';
+  let addButton = document.querySelectorAll('.js-buy-button');
+
+  addButton.forEach(elem => {
+    elem.addEventListener('click', function () {
+      let itemTitle = elem.dataset.title;
+      let itemPrice = elem.dataset.price;
+      let itemPayload = {
+        'title': itemTitle,
+        'price': itemPrice };
+
+      let currentCart = JSON.parse(getCart(storageCartName));
+      let changeCartEvent = new Event('itemInserted');
+
+      if (currentCart === null) {
+        currentCart = { 'items': [] };
+      }
+      currentCart.items.push(itemPayload);
+      setCart(storageCartName, JSON.stringify(currentCart));
+      document.dispatchEvent(changeCartEvent);
+    });
+  });
+};
+
+function listenToCartHandler() {
+  let cartData = JSON.parse(getCart('cart'));
+  let shoppingListContainer = document.querySelector('#js-item-list');
+  shoppingListContainer.innerHTML = '';
+
+  if (cartData !== null) {
+    cartData.items.forEach(elem => {
+      let shoppingListTemplate = `
+        <li class="cart__shoppingList__item">
+          <h3>${elem.title}</h3>
+          <p>Price: ${elem.price}</p>
+        </li>
+        `;
+      shoppingListContainer.innerHTML += shoppingListTemplate;
+    });
+  }
+}
+
+function emptyCart() {
+  let deleteButton = document.querySelector('#js-delete-cart');
+  deleteButton.addEventListener('click', function () {
+    deleteCart('cart');
+    listenToCartHandler();
+  });
+}
+
+// Init
+listenToCartHandler();
+document.addEventListener("itemInserted", listenToCartHandler, false);
+addToCartHandler();
+emptyCart();
+      </script>
+</body>
+</html>
